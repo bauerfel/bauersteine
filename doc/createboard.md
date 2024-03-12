@@ -1,6 +1,6 @@
 #  CREATE BOARD: MyApp
 
-![Use case diagram](figures/uc-diagram.drawio.svg)
+![Use case diagram](figures/ucDiagramm.drawio.svg)
 
 ## IDEEN-BESCHREIBUNG
 > Es wurde etwas falsch bestellt, man möchte es zurücksenden, hat aber keine Zeit oder Lust. Mit unserer App wird es möglich sein, dass Paket zu scannen einen Lieferanten zu finden und das Paket bequem für einen ausliefern zu lassen.
