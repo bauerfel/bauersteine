@@ -3,45 +3,41 @@ Wie kann das Rücksenden von Packeten für den Kunden vereinfacht werden?
 
 
 ## TRENDS & TECHNOLOGIE
-> Durch den Trend der wachsenden Beschäftigung oder auch Bequemlichkeit des niederen Volks, soll dank unserer App diesen Personen der Alltag vereinfacht werden mittels modernster Technologie.
-
+> Der zunehmende Online-Handel machen eine benutzerfreundliche Website unverzichtbar für den Verkauf nachhaltiger Steinurnen aus Flusssteinen. 
+> Die höhere Nachfrage nach Individualisierung fordert deutlich mehr Beratungszeit der Kunden. 
+> Mit einem Fokus auf umweltfreundlichen Materialien und nachhaltiger Produktion können Kundenbedürfnisse nach ethischen und ökologisch verträglichen Produkten erfüllt werden.
+> Die potenzielle Integration von Virtual Reality-Technologie kann Kunden helfen, die Steinurnen aus Flusssteinen virtuell anzusehen und sich ein genaues Bild von ihrem Aussehen zu machen, bevor sie eine Kaufentscheidung treffen.
 ## POTENTIELLE PARTNER & WETTBEWERB
-> Potenzielle Partner sind die Post oder Planzer. Da Pakete an diese übergeben werden müssen, wäre eine Zusammenarbeit vorteilhaft für beide Seiten. Wettbewerb besteht hauptsächlich durch die Post die dafür 2.- berechnet.
-
+> Zuverlässige Hosting-Anbieter können eine wichtige Rolle bei der Bereitstellung einer stabilen und sicheren Online-Präsenz spielen.
+> Logistikpartner, wie die beispielsweise die Post, die sich auf die Lieferung und den Versand spezialisieren, können eine reibungslose Lieferkette sicherstellen und eine schnelle und zuverlässige Auslieferung der Steinurnen an die Kunden gewährleisten.
 
 ## FAKTEN
 > Das Feld Fakten ist gewissermassen unser Joker. Hier steht alles, was sich in den anderen Feldern nicht einordnen lässt, aber irgendwie mit unserem Recherchethema zu tun hat.
 
-Freiwillige Fahrer wie Uber oder Taxi mit einbinden.
-
 ## POTENZIALFELDER
-> Unter Potentialfelder notieren wir wiederkehrende Themenschwerpunkte, die unsere User beschäftigen. Diese sind erste Hinweise auf konkrete Bedürfnisse und entpuppen sich oftmals als Vorstufe von Ideen, die wir später mithilfe des CREATE-Moduls und seiner Methoden herausarbeiten können.
-
-Die konkreten Bedürfnisse der User, welche Kunden mit einer Paketrücksendung sind, ist, dass sie den Weg zur Post nicht auf sich nehmen müssen und das Paket bequem abholen lassen können.
-
+> Die Integratin einer klar separierten Sparte von Steinurnen für Tiere die, die Kunden in ihrem leben begleitet haben.
 ## USER
-
-> Die Merkmale unserer User sind: 
--Erhöhter Konsum via Onlinebestellung
--Keine Zeit, Lust oder eingeschränkte Mobilität
+> Menschen mit kürzlich verstorbenen Angehörigen.
+> Menschen mit kürzlich verstorbenen Haustieren.
+> Händler und Händlerinnen, die Urnen vertreiben.
 
 ## BEDÜRFNISSE
-> Was wir unter Bedürfnisse notieren, müssen wir mit unserer Innovation (auf)lösen. Die Kombination von User und Bedürfnis ist der Fixpunkt für die Entwicklung von neuen digitalen Produkten und Services.
-Der Kunde will die Zeit für das Rücksenden von Packeten reduzieren und sich nicht bewegen.
+> Eine Informationsqelle die über Stein Urnen aus Flusssteinen aufklären.
+> Einfache Personalsisierung der Stein Urne.
+> Einfacher einkauf von Stein Urnen.
 
 ## ERKENNTNISSE
-> Das Feld Erkenntnisse enthält Informationen, die sowohl die physische als auch die emotionale Lebenswelt unserer User betreffen. Hier notieren wir auch passende Analogien, die uns eine neue Perspektive für unser Recherchethema ermöglichen. Oder Analogien, die unsere Empathie für das Recherchethema vertiefen.
-
-Unsere User sind entweder sehr beschäftigt oder einfach etwas zu bequem, um das Paket wieder selber zurück zur Post bringen zu wollen. Sie setzen auf diesen neuen Service und sind froh, wenn sie diese Aufgabe an die App PackMe abgeben können und sind auch bereit, einen Beitrag dafür zu bezahlen.
+> Im Kontext der Website von Stein Urnen sammeln wir Erkenntnisse über die Bedürfnisse und Emotionen der Benutzer, die sich mit dem sensiblen Thema der Trauer und des Gedenkens befassen. Diese Erkenntnisse ermöglichen es uns, nicht nur die physischen Anforderungen der Benutzer zu verstehen, sondern auch ihre emotionalen Bedürfnisse besser zu erfassen. Darüber hinaus suchen wir nach Analogien, die uns helfen, die Erfahrung des Trauerprozesses und des Gedenkens aus verschiedenen Blickwinkeln zu betrachten, um unsere Website entsprechend einfühlsam und unterstützend zu gestalten.
 
 ## TOUCHPOINTS
 > Das Feld Touchpoints listet die Berührungspunkte auf, die User mit einem Service oder Produkt haben.
-- Packet
-- (Lieferant)
+- Stein Urne
+- Lieferant
 - Anwendung
-
+- Personalisierung
 
 ## WIE KÖNNEN WIR?
-> Aus den Informationen über User, Bedürfnisse, Erkenntnisse und Touchpoints entwickeln wir eine Wie-können wir- Frage, die ein ungelöstes Problem für User beschreibt.
-Wie können wir das Rücksenden von Packeten für den Kunden vereinfachen?
+>Wie können wir sicherstellen, dass die Website von Stein Urnen nicht nur informative und funktionale Inhalte bietet, sondern auch einfühlsame und unterstützende Ressourcen bereitstellt, die den Nutzern dabei helfen, mit ihren Trauer- und Gedenkprozessen umzugehen?
+
+
 
