@@ -1,52 +1,44 @@
 #  CREATE BOARD: SteinUrnen
-
 ![Use case diagram](figures/ucDiagramm.drawio.svg)
 
 ## IDEEN-BESCHREIBUNG
-> Es wurde etwas falsch bestellt, man möchte es zurücksenden, hat aber keine Zeit oder Lust. Mit unserer App wird es möglich sein, dass Paket zu scannen einen Lieferanten zu finden und das Paket bequem für einen ausliefern zu lassen.
+> eine Web Anwendung die Informationen, einen Shop sowie die Personalisierung für Stein Urnen bietet. Unsere handgefertigten Stein Urnen aus natürlichen Flusssteinen sind nicht nur ästhetisch ansprechend, sondern auch nachhaltig. Jede Urne ist ein Unikat, das die Persönlichkeit des Verstorbenen würdigt und den Familien Trost in schweren Zeiten bietet.
 
 ## ADRESSIERTE NUTZER
->NutzerInnen sind zwei unterschiedliche Klassen: 
-- Lieferanten: Lieferanten sind mobile Personen die noch Platz für Packete haben auf/in ihrem Beförderungsmittel. Sie wollen Geld verdienen
-- Kunden: Haben eines oder mehrere Packete bestellt und wollen dies nun möglichst einfach retournieren. 
+>Menschen mit kürzlich verstorbenen Angehörigen.
+> Menschen mit kürzlich verstorbenen Haustieren.
+> Händler und Händlerinnen, die Urnen vertreiben.
 
 ## ADRESSIERTE BEDÜRFNISSE
-
+- Informationen über Steinurnen
+- die möglichkeit Stein Urnen online zu Kaufen
+- beistand und hilfestellung mit Umgang des Trauerfall
 - Einfache handhabung
-- berücksichtigung von Immobilität (Kunden)
-- Zeitersparnis
-- Geld verdienen (Lieferant)
 - Oekologische Nachhaltigkeit
 
-
 ## PROBLEME 
-Komplizierte Rücksendeprozesse: Kunden finden es oft frustrierend, dass die Rücksendung von Paketen mit komplizierten Prozessen verbunden ist, wie das Ausfüllen von Formularen oder das Warten auf Rücksendeetiketten.
-
-Zeitintensive Suche nach Kurieren: Kunden haben Schwierigkeiten dabei, einen geeigneten Kurier zu finden, der bereit ist, das Paket für sie zurückzusenden, insbesondere wenn sie eine große Anzahl von Optionen durchgehen müssen.
-
-Unsicherheit über den Rücksendeprozess: Kunden fühlen sich unsicher darüber, ob ihr Paket sicher und rechtzeitig zurückgesendet wird, insbesondere wenn es sich um wertvolle oder fragile Artikel handelt.
+> Es gibt keinen Web Shop für Stein Urnen aus natürlichen Flusssteinen. 
+> Es sind nur wenige informationen von Stein Urnen aus natürlichen Flusssteinen verfügbar. 
 
 ## IDEENPOTENZIAL
 Mehrwert: Mückenstich vs. Hai-Attacke
 
-🔵🔵⚪️⚪️⚪️⚪️⚪️⚪️⚪️⚪️
+🔵🔵🔵🔵🔵🔵🔵🔵⚪️⚪️
 
 Übertragbarkeit: Robinson Crusoe vs. die Welt
 
-🔵🔵🔵🔵🔵🔵🔵🔵🔵⚪️
+🔵⚪️⚪️⚪️⚪️⚪️⚪️⚪️⚪️⚪️
 
 Machbarkeit: Hammer vs. Raumschiff
 
-🔵🔵🔵⚪️⚪️⚪️⚪️⚪️⚪️⚪️
+🔵🔵🔵🔵🔵⚪️⚪️⚪️⚪️⚪️
 
 
 ## DAS WOW
-> Pakete zurückschicken. So einfach wie noch nie.
+> Stein Urnen aus natürlichen Flusssteinen.
 
 ## HIGH-LEVEL-KONZEPT
-> Das Uber der Pakete. Schnell, simple und flexibel. Lieferanten suchen, Paket bereitstellen und das Paket wird für einen zurückgeschickt. 
+> die einfach nutzbare und im Trauerprozess unterstützende Web Anwendung die Informationen, den Verkauf und Personalisierung von Stein Urnen aus natürlichen Flusssteinen handhabt.
 
 ## WERTVERSPRECHEN
-Unser Wertversprechen besteht darin, die Rücksendung von Paketen so einfach und bequem wie möglich zu gestalten. Wir bieten eine innovative Lösung, die es Kunden ermöglicht, ihre Pakete mit Leichtigkeit zurückzusenden, indem wir einen nahtlosen Prozess bieten, der Zeit spart, Kosten minimiert und Sicherheit gewährleistet. Durch die Nutzung unserer App können Kunden schnell und einfach einen passenden Kurier finden, ihr Paket vorbereiten und sicherstellen, dass es sicher und rechtzeitig an den Händler zurückgesendet wird. Unser Service bietet eine benutzerfreundliche Schnittstelle, transparente Rücksendeoptionen und eine einfache Verfolgung des Rücksendeprozesses, um das Vertrauen und die Zufriedenheit unserer Kunden zu maximieren. Mit unserem Wertversprechen können Kunden sich darauf verlassen, dass die Rücksendung ihrer Pakete so einfach ist wie nie zuvor, und gleichzeitig Zeit, Geld und Mühe sparen.
-
-
+Unsere Webanwendung bietet eine benutzerfreundliche Plattform, die den gesamten Prozess von Informationen, Verkauf und Personalisierung von Steinurnen aus natürlichen Flusssteinen nahtlos unterstützt. In Zeiten der Trauer steht unsere Anwendung den Nutzern einfühlsam und unterstützend zur Seite, indem sie ihnen eine einfache und zugängliche Lösung bietet, um würdevolle Erinnerungsstücke für ihre Liebsten zu gestalten.

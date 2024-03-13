@@ -8,6 +8,7 @@
 ## UNFAIRER VORTEIL
 > Einzigartige Designs und hochwertige Handwerkskunst tragen dazu bei, dass die Stein Urnen aus der Masse herausragen und schwer zu imitieren sind.
 > Die Erfahrung des Trauerprozesses und des Gedenkens aus verschiedenen Blickwinkeln zu betrachten, um unsere Website entsprechend einfühlsam und unterstützend zu gestalten sorgt für Einzigartigkeit.
+
 ## KPI
 - Anzahl Verkäufe 
 - Anzahl Kunden

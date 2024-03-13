@@ -7,6 +7,7 @@ Wie kann das Rücksenden von Packeten für den Kunden vereinfacht werden?
 > Die höhere Nachfrage nach Individualisierung fordert deutlich mehr Beratungszeit der Kunden. 
 > Mit einem Fokus auf umweltfreundlichen Materialien und nachhaltiger Produktion können Kundenbedürfnisse nach ethischen und ökologisch verträglichen Produkten erfüllt werden.
 > Die potenzielle Integration von Virtual Reality-Technologie kann Kunden helfen, die Steinurnen aus Flusssteinen virtuell anzusehen und sich ein genaues Bild von ihrem Aussehen zu machen, bevor sie eine Kaufentscheidung treffen.
+
 ## POTENTIELLE PARTNER & WETTBEWERB
 > Zuverlässige Hosting-Anbieter können eine wichtige Rolle bei der Bereitstellung einer stabilen und sicheren Online-Präsenz spielen.
 > Logistikpartner, wie die beispielsweise die Post, die sich auf die Lieferung und den Versand spezialisieren, können eine reibungslose Lieferkette sicherstellen und eine schnelle und zuverlässige Auslieferung der Steinurnen an die Kunden gewährleisten.
@@ -16,6 +17,7 @@ Wie kann das Rücksenden von Packeten für den Kunden vereinfacht werden?
 
 ## POTENZIALFELDER
 > Die Integratin einer klar separierten Sparte von Steinurnen für Tiere die, die Kunden in ihrem leben begleitet haben.
+
 ## USER
 > Menschen mit kürzlich verstorbenen Angehörigen.
 > Menschen mit kürzlich verstorbenen Haustieren.
