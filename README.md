@@ -1,2 +1,2 @@
-# Web anwendung für Stein Urnen aus Flusssteinen
+# Web Anwendung für Stein Urnen aus Flusssteinen
 Leistungsnachweis Software Engineering 2
