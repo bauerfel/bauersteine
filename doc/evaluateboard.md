@@ -1,13 +1,16 @@
-#  EVALUATE BOARD: MyApp
+#  EVALUATE BOARD: SteinUrnen
 
 ## KANÄLE
-> Beschreibe die Vertriebs- und Marketingkanäle, über welche die NutzerInnen erreicht werden sollen. Beispiel: TikTok, E-Mail, Flyer etc.
+- Soziale Medien
+- Partnerschaften und Kooperationen
+- Örtliche Präsenz 
 
 ## UNFAIRER VORTEIL
-> Notiere Faktoren der Lösung, die nur schwer oder gar nicht kopierbar sind. Diese Faktoren machen es schwierig, ein Konkurrenzprodukt deiner Lösung zu lancieren. 
-
+> Einzigartige Designs und hochwertige Handwerkskunst tragen dazu bei, dass die Stein Urnen aus der Masse herausragen und schwer zu imitieren sind.
+> Die Erfahrung des Trauerprozesses und des Gedenkens aus verschiedenen Blickwinkeln zu betrachten, um unsere Website entsprechend einfühlsam und unterstützend zu gestalten sorgt für Einzigartigkeit.
 ## KPI
-Anzahl transportierte Pakete, Anzahl Kunden
+- Anzahl Verkäufe 
+- Anzahl Kunden
 
 ## EINNAHMEQUELLEN
-Unsere Einnahmequelle liegt darin, dass wir bei jedem Pakettransport einen prozentualen Anteil mitvedienen.
+> Unsere Einnahmequelle liegt darin, dass wir Stein Urnen verkaufen die teilweise auch personalsisiert sind. 

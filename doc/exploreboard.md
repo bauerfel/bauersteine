@@ -1,5 +1,5 @@
 Wie kann das Rücksenden von Packeten für den Kunden vereinfacht werden?
-#  EXPLORE BOARD: MyApp
+#  EXPLORE BOARD: SteinUrnen
 
 
 ## TRENDS & TECHNOLOGIE

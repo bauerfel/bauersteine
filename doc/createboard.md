@@ -1,4 +1,4 @@
-#  CREATE BOARD: MyApp
+#  CREATE BOARD: SteinUrnen
 
 ![Use case diagram](figures/ucDiagramm.drawio.svg)
 
