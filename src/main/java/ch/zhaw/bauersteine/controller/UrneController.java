@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ch.zhaw.bauersteine.model.Urne;
 import ch.zhaw.bauersteine.model.UrneCreateDTO;
+import ch.zhaw.bauersteine.model.UrneStateAggregation;
 import ch.zhaw.bauersteine.repository.UrneRepository;
 
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,23 +37,28 @@ public class UrneController {
 
     @GetMapping("/urne")
     public ResponseEntity<List<Urne>> getAllUrne(
-        @RequestParam(required = false) Double is) {
+            @RequestParam(required = false) Double is) {
         List<Urne> allU;
         if (is != null) {
             allU = urneRepository.findByInhaltsmenge(is);
             return new ResponseEntity<>(allU, HttpStatus.OK);
-        }else {
-        allU = urneRepository.findAll();
-        return new ResponseEntity<>(allU, HttpStatus.OK);
+        } else {
+            allU = urneRepository.findAll();
+            return new ResponseEntity<>(allU, HttpStatus.OK);
         }
     }
 
     @GetMapping("/urne/{id}")
     public ResponseEntity<Urne> getUrneById(@PathVariable String id) {
         Optional<Urne> optUrne = urneRepository.findById(id);
-                // Falls die ID existiert, OK und die Urne zurückgeben
+        // Falls die ID existiert, OK und die Urne zurückgeben
         return optUrne.stream().filter(x -> x.getId().equals(id)).findFirst().map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
         // Falls die ID nicht existiert, NOT_FOUND zurückgeben
+    }
+
+    @GetMapping("/urne/aggregation/state")
+    public List<UrneStateAggregation> getUrneStateAggregation() {
+        return urneRepository.getUrneStateAggregation();
     }
 }
