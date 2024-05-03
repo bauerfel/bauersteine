@@ -11,5 +11,6 @@ public class UrneCreateDTO {
     private String beschreibung;
     private String material;
     private double preis;
+    private double inhaltsmenge;
 
 }

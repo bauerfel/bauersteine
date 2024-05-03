@@ -17,6 +17,7 @@ import ch.zhaw.bauersteine.model.UrneCreateDTO;
 import ch.zhaw.bauersteine.repository.UrneRepository;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api")
@@ -28,15 +29,22 @@ public class UrneController {
     @PostMapping("/urne")
     public ResponseEntity<Urne> createUrne(
             @RequestBody UrneCreateDTO uDTO) {
-        Urne uDAO = new Urne(uDTO.getBeschreibung(), uDTO.getMaterial(), uDTO.getPreis());
+        Urne uDAO = new Urne(uDTO.getBeschreibung(), uDTO.getMaterial(), uDTO.getPreis(), uDTO.getInhaltsmenge());
         Urne u = urneRepository.save(uDAO);
         return new ResponseEntity<>(u, HttpStatus.CREATED);
     }
 
     @GetMapping("/urne")
-    public ResponseEntity<List<Urne>> getAllUrne() {
-        List<Urne> allU = urneRepository.findAll();
+    public ResponseEntity<List<Urne>> getAllUrne(
+        @RequestParam(required = false) Double min) {
+        List<Urne> allU;
+        if (min != null) {
+            allU = urneRepository.findByInhaltsmengeGreaterThan(min);
+            return new ResponseEntity<>(allU, HttpStatus.OK);
+        }else {
+        allU = urneRepository.findAll();
         return new ResponseEntity<>(allU, HttpStatus.OK);
+        }
     }
 
     @GetMapping("/urne/{id}")

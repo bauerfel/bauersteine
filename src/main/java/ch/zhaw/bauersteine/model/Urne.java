@@ -25,5 +25,8 @@ public class Urne {
     private String material;
     @NonNull
     private double preis;
+    @NonNull
+    private double inhaltsmenge; // in Liter
 
+    private UrneState state = UrneState.NEW;
 }
