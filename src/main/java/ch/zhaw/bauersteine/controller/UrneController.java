@@ -36,10 +36,10 @@ public class UrneController {
 
     @GetMapping("/urne")
     public ResponseEntity<List<Urne>> getAllUrne(
-        @RequestParam(required = false) Double min) {
+        @RequestParam(required = false) Double is) {
         List<Urne> allU;
-        if (min != null) {
-            allU = urneRepository.findByInhaltsmengeGreaterThan(min);
+        if (is != null) {
+            allU = urneRepository.findByInhaltsmenge(is);
             return new ResponseEntity<>(allU, HttpStatus.OK);
         }else {
         allU = urneRepository.findAll();
