@@ -11,5 +11,8 @@ public interface UrneRepository extends MongoRepository<Urne, String>{
     List<Urne> findByInhaltsmenge(double inhaltsmenge);
 
     @Aggregation("{$group:{_id:'$state',UrneIds:{'$push':'$_id'},count:{$count:{}}}}")  // todo: aggregation Pipeline anpassen Ids = Null
+    //@Aggregation("{'$group':{'_id': '$state','UrneIds': {'$push': '$_id'},'count': {'$count': {}}}}")
+   //@Aggregation("{'$group':{'_id':'$state','UrneIds':{'$addToSet':'$_id'},'count':{'$sum':1}}}")
+
     List<UrneStateAggregation> getUrneStateAggregation();
 }
