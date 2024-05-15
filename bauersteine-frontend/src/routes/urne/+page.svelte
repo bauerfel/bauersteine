@@ -121,7 +121,7 @@
     >
 </form>
 
-<h1>All Jobs</h1>
+<h1>Alle Urnen</h1>
 <table class="table">
     <thead>
         <tr>
