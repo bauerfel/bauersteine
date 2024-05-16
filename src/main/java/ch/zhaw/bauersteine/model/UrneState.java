@@ -1,5 +1,5 @@
 package ch.zhaw.bauersteine.model;
 
 public enum UrneState {
-    NEW, ASSIGNED, SOLD
+    NEW, AVAILABLE, ASSIGNED, SOLD
 }
