@@ -15,4 +15,5 @@ RUN ./mvnw package
 
 
 EXPOSE 8080
-CMD ["java", "-jar", "/usr/src/app/target/bauersteine-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "/usr/src/app/target/bauersteine"]
+# CMD ["java", "-jar", "/usr/src/app/target/bauersteine-0.0.1-SNAPSHOT.jar"]
