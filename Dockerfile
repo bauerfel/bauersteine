@@ -5,9 +5,9 @@ FROM openjdk:21-jdk-slim
    && curl -L https://www.npmjs.com/install.sh | npm_install="10.2.3" | sh
 WORKDIR /usr/src/app 
 COPY . .
-RUN cd freelancer4u-frontend && npm install 
-RUN cd freelancer4u-frontend && npm run build 
-RUN rm -r freelancer4u-frontend
+RUN cd bauersteine-frontend && npm install 
+RUN cd bauersteine-frontend && npm run build 
+RUN rm -r bauersteine-frontend
 
 RUN sed -i 's/\r$//' mvnw 
 RUN chmod +x mvnw 
