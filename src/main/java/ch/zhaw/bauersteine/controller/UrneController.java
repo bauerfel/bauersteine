@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,4 +69,15 @@ public class UrneController {
     public List<UrneStateAggregation> getUrneStateAggregation() {
         return urneRepository.getUrneStateAggregation();
     }
+    
+    // delete nur wenn die Id des Angemeldeten Produzenten übereinstimmt. 
+    // @DeleteMapping("/job")
+    // public ResponseEntity<String> deleteAllJobs(@AuthenticationPrincipal Jwt jwt) {
+    //     if (!roleService.hasRole("admin", jwt)) {
+    //         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    //     }
+    //     jobRepository.deleteAll();
+    //     return ResponseEntity.status(HttpStatus.OK).body("DELETED");
+    // }
 }
+

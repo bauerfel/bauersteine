@@ -140,8 +140,8 @@
                 <td>{urne.material}</td>
                 <td>{urne.preis}</td>
                 <td>{urne.inhaltsmenge}</td>
-                <td>{urne.urneState}</td>
-                <td>{urne.urneId}</td>
+                <td>{urne.state}</td>
+                <td>{urne.id}</td>
             </tr>
         {/each}
     </tbody>

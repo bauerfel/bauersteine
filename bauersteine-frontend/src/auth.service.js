@@ -80,6 +80,7 @@ function login(username, password, redirectToHome = false) {
     .then((response) => {
       const { id_token, access_token } = response.data;
       jwt_token.set(id_token);
+      sessionStorage.setItem("jwt_token", id_token);
       console.log(id_token);
       getUserInfo(access_token);
       if (redirectToHome) {
@@ -122,6 +123,7 @@ async function logout() {
     await createClient();
     user.set({});
     jwt_token.set("");
+    sessionStorage.setItem("jwt_token", "");
     await auth0Client.logout({logoutParams:{returnTo: window.location.origin}});
   } catch (e) {
     console.error(e);
