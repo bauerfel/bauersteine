@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +31,12 @@ public class UrneController {
 
     @PostMapping("/urne")
     public ResponseEntity<Urne> createUrne(
-            @RequestBody UrneCreateDTO uDTO) {
+            @RequestBody UrneCreateDTO uDTO,
+            @AuthenticationPrincipal Jwt jwt) {
+        List<String> userRoles = jwt.getClaimAsStringList("user_roles");
+        if (!userRoles.contains("prod")) {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
         Urne uDAO = new Urne(uDTO.getBeschreibung(), uDTO.getMaterial(), uDTO.getPreis(), uDTO.getInhaltsmenge());
         Urne u = urneRepository.save(uDAO);
         return new ResponseEntity<>(u, HttpStatus.CREATED);
