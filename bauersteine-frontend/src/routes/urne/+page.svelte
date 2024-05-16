@@ -2,7 +2,7 @@
     import axios from "axios";
     import { page} from "$app/stores";
     import { onMount } from "svelte";
-
+    import { jwt_token} from "../../store";
     const api_root = $page.url.origin;
 
 
@@ -23,6 +23,7 @@
             method: "get",
             url: api_root + "/api/urne",
             headers: {},
+            headers: {Authorization: "Bearer "+$jwt_token},
         };
 
         axios(config)
@@ -39,8 +40,8 @@
         var config = {
             method: "post",
             url: api_root + "/api/urne",
-            headers: {
-                "Content-Type": "application/json",
+            headers: { Authorization: "Bearer "+$jwt_token,
+                //"Content-Type": "application/json",
             },
             data: urne,
         };
@@ -120,7 +121,7 @@
     >
 </form>
 
-<h1>All Jobs</h1>
+<h1>Alle Urnen</h1>
 <table class="table">
     <thead>
         <tr>
