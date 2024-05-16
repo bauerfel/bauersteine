@@ -40,8 +40,8 @@
         var config = {
             method: "post",
             url: api_root + "/api/urne",
-            headers: {
-                "Content-Type": "application/json",
+            headers: { Authorization: "Bearer "+$jwt_token,
+                //"Content-Type": "application/json",
             },
             data: urne,
         };
