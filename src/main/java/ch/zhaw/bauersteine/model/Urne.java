@@ -1,7 +1,7 @@
 package ch.zhaw.bauersteine.model;
 
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -30,7 +30,8 @@ public class Urne {
     @NonNull
     private double inhaltsmenge; // in Liter
 
+    private UrneState state = UrneState.AVAILABLE;
+    
     //private LocalDateTime createdDate; für NEW
 
-    private UrneState state = UrneState.AVAILABLE;
 }
