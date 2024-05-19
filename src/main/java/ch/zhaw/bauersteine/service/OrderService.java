@@ -77,4 +77,19 @@ public class OrderService {
         }
         return Optional.empty();
     }
+
+    // public Optional<Urne> setUrneToDelivered(String urneId) {
+    //     Optional<Urne> urneToDeliver = urneRepository.findById(urneId);
+    //     if (urneToDeliver.isPresent()) {
+    //         Urne urne = urneToDeliver.get();
+    //         if (urne.getState() == UrneState.SOLD) {
+    //             urne.setState(UrneState.DELIVERED);
+    //             urneRepository.save(urne);
+    //             return Optional.of(urne);
+    //         }
+    //     }
+    //     return Optional.empty();
+    // }
+
+      
 }
