@@ -26,6 +26,10 @@ public class Order {
     
     private OrderState state = OrderState.ASSIGNED;// Status der Bestellung
 
+    public void setState(OrderState state) {
+        this.state = state;
+    }
+
     //  @NoArgsConstructor Auskommentieren dann wird der Konstruktor nicht mehr generiert 
     //    public Order() {
     //     this.orderTime = LocalDateTime.now();

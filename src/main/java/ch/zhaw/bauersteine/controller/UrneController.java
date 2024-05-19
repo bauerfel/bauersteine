@@ -69,15 +69,15 @@ public class UrneController {
     public List<UrneStateAggregation> getUrneStateAggregation() {
         return urneRepository.getUrneStateAggregation();
     }
-    
-    // delete nur wenn die Id des Angemeldeten Produzenten übereinstimmt. 
+
+    // delete nur wenn die Id des Angemeldeten Produzenten übereinstimmt.
     // @DeleteMapping("/job")
-    // public ResponseEntity<String> deleteAllJobs(@AuthenticationPrincipal Jwt jwt) {
-    //     if (!roleService.hasRole("admin", jwt)) {
-    //         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-    //     }
-    //     jobRepository.deleteAll();
-    //     return ResponseEntity.status(HttpStatus.OK).body("DELETED");
+    // public ResponseEntity<String> deleteAllJobs(@AuthenticationPrincipal Jwt jwt)
+    // {
+    // if (!roleService.hasRole("admin", jwt)) {
+    // return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    // }
+    // jobRepository.deleteAll();
+    // return ResponseEntity.status(HttpStatus.OK).body("DELETED");
     // }
 }
-

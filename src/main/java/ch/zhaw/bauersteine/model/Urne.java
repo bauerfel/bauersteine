@@ -31,6 +31,10 @@ public class Urne {
     private double inhaltsmenge; // in Liter
 
     private UrneState state = UrneState.AVAILABLE;
+
+    public void setState(UrneState state) {
+        this.state = state;
+    }
     
     //private LocalDateTime createdDate; für NEW
 

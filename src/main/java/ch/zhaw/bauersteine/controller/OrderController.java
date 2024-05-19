@@ -1,6 +1,5 @@
 package ch.zhaw.bauersteine.controller;
 
-
 import java.util.List;
 import java.util.Optional;
 
@@ -18,6 +17,7 @@ import ch.zhaw.bauersteine.model.OrderCreateDTO;
 import ch.zhaw.bauersteine.model.Urne;
 import ch.zhaw.bauersteine.model.Order;
 import ch.zhaw.bauersteine.repository.OrderRepository;
+import ch.zhaw.bauersteine.service.OrderService;
 
 @RestController
 @RequestMapping("/api")
@@ -28,13 +28,13 @@ public class OrderController {
 
     @PostMapping("/order")
     public ResponseEntity<Order> createOrder(
-        @RequestBody OrderCreateDTO cDTO) {
+            @RequestBody OrderCreateDTO cDTO) {
         Order oDAO = new Order(cDTO.getUrneIds());
         Order o = orderRepository.save(oDAO);
         return new ResponseEntity<>(o, HttpStatus.CREATED);
     }
 
-        @GetMapping("/order")
+    @GetMapping("/order")
     public ResponseEntity<List<Order>> getAllOrder(
             @RequestParam(required = false) Double is) {
         List<Order> allO;
@@ -47,7 +47,7 @@ public class OrderController {
         }
     }
 
-        @GetMapping("/order/{id}")
+    @GetMapping("/order/{id}")
     public ResponseEntity<Order> getOrderById(@PathVariable String id) {
         Optional<Order> optOrder = orderRepository.findById(id);
         // Falls die ID existiert, OK und die Urne zurückgeben
