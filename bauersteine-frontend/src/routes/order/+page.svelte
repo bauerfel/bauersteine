@@ -1,17 +1,15 @@
 <script>
     import axios from "axios";
-    import { page} from "$app/stores";
+    import { page } from "$app/stores";
     import { onMount } from "svelte";
-    import { jwt_token} from "../../store";
+    import { jwt_token } from "../../store";
     const api_root = $page.url.origin;
-
 
     let orders = [];
     let order = {
-        beschreibung: "",
-        material: "",
-        preis: 0,
-        inhaltsmenge: 0,
+        id: "",
+        urneIds: [],
+        state: "",
     };
 
     onMount(() => {
@@ -23,7 +21,7 @@
             method: "get",
             url: api_root + "/api/order",
             headers: {},
-            headers: {Authorization: "Bearer "+$jwt_token},
+            headers: { Authorization: "Bearer " + $jwt_token },
         };
 
         axios(config)
@@ -40,7 +38,8 @@
         var config = {
             method: "post",
             url: api_root + "/api/order",
-            headers: { Authorization: "Bearer "+$jwt_token,
+            headers: {
+                Authorization: "Bearer " + $jwt_token,
                 //"Content-Type": "application/json",
             },
             data: order,
@@ -59,3 +58,23 @@
 </script>
 
 <h1>Deine Bestellungen</h1>
+
+<h1>Alle Orders</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">State</th>
+            <th scope="col">UrneIds</th>
+        </tr>
+    </thead>
+    <tbody>
+        {#each orders as order}
+            <tr>
+                <td>{order.id}</td>
+                <td>{order.state}</td>
+                <td>{order.urneIds}</td>
+            </tr>
+        {/each}
+    </tbody>
+</table>
