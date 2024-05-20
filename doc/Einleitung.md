@@ -1,5 +1,5 @@
 # Einleitung
- In der Einleitung sind Explore-,Create-, Evaluate-Board und die Erkenntnisse aus dem Pitch Zusammengefasst.
+In diesem Abschnitt werden die finalen Versionen der Explore-, Create- und Evaluate-Boards vorgestellt, die die Entwicklungsphasen des Projekts strukturieren und begleiten. Zudem werden wichtige Erkenntnisse aus dem Pitch des Projekts diskutiert, welche direktes Feedback zu dessen Inhalt und Verständlichkeit beinhalten. Diese Einsichten sind entscheidend für die Feinjustierung des Projektkonzepts, um sicherzustellen, dass die Zielsetzungen klar und effektiv umgesetzt werden.
 
 #  EXPLORE BOARD: SteinUrnen
 
