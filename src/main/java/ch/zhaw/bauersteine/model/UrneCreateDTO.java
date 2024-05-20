@@ -1,6 +1,6 @@
 package ch.zhaw.bauersteine.model;
 
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 
 //Definiert Daten, die für das Erstellen einer Urne benötigt werden
 import lombok.Getter;
