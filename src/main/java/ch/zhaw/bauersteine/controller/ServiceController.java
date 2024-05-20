@@ -35,16 +35,15 @@ public class ServiceController {
         return updatedOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PostMapping("/{orderId}/deliverOrder")
-    public ResponseEntity<Order> setOrderToDelivered(@PathVariable String orderId) {
-        Optional<Order> updatedOrder = orderService.setOrderToDelivered(orderId);
-        return updatedOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
-
     @PostMapping("/{urneId}/deliverUrne")
     public ResponseEntity<Urne> setUrneToDelivered(@PathVariable String urneId) {
         Optional<Urne> updatedUrne = urneService.setUrneToDelivered(urneId);
         return updatedUrne.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    // @PostMapping("/{orderId}/deliverOrder")
+    // public ResponseEntity<Order> setOrderToDelivered(@PathVariable String orderId) {
+    //     Optional<Order> updatedOrder = orderService.setOrderToDelivered(orderId);
+    //     return updatedOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    // }
 }
