@@ -20,6 +20,11 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {#if $isAuthenticated}
+          <li class="nav-item">
+          <a class="nav-link" href="/product">Urnen</a> 
+        </li>
+        {/if}
         {#if $isAuthenticated && $user.user_roles && $user.user_roles.includes("prod")}
           <li class="nav-item">
             <a class="nav-link" aria-current="page" href="/urne">Urnen erstellen</a> 
@@ -27,14 +32,15 @@
         {/if}
         {#if $isAuthenticated}
           <li class="nav-item">
-          <a class="nav-link" href="/account">Account</a>
+          <a class="nav-link" href="/order">Einkaufswagen</a> 
         </li>
         {/if}
         {#if $isAuthenticated}
           <li class="nav-item">
-          <a class="nav-link" href="/order">Einkaufswagen</a> 
+          <a class="nav-link" href="/account">Account</a>
         </li>
         {/if}
+       
       </ul>
       <div class="d-flex">
         //{#if $isAuthenticated}
