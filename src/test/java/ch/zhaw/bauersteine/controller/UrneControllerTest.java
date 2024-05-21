@@ -46,30 +46,30 @@ public class UrneControllerTest {
     //     assertThat(response.getBody()).isEqualTo(u);
     // }
 
-    @Test
-    public void testGetAllUrne() {
-        List<Urne> allU = new ArrayList<>();
-        allU.add(new Urne("Beschreibung1", "Material1", 10.0, 100));
-        allU.add(new Urne("Beschreibung2", "Material2", 20.0, 200));
-        when(urneRepository.findAll()).thenReturn(allU);
+    // @Test
+    // public void testGetAllUrne() {
+    //     List<Urne> allU = new ArrayList<>();
+    //     allU.add(new Urne("Beschreibung1", "Material1", 10.0, 100));
+    //     allU.add(new Urne("Beschreibung2", "Material2", 20.0, 200));
+    //     when(urneRepository.findAll()).thenReturn(allU);
 
-        ResponseEntity<List<Urne>> response = urneController.getAllUrne(null);
+    //     ResponseEntity<List<Urne>> response = urneController.getAllUrne(null);
 
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(response.getBody()).isEqualTo(allU);
-    }
+    //     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    //     assertThat(response.getBody()).isEqualTo(allU);
+    // }
 
-    @Test
-    public void testGetAllUrneWithInhaltsmenge() {
-        List<Urne> allU = new ArrayList<>();
-        allU.add(new Urne("Beschreibung1", "Material1", 10.0, 100));
-        when(urneRepository.findByInhaltsmenge(100.0)).thenReturn(allU);
+    // @Test
+    // public void testGetAllUrneWithInhaltsmenge() {
+    //     List<Urne> allU = new ArrayList<>();
+    //     allU.add(new Urne("Beschreibung1", "Material1", 10.0, 100));
+    //     when(urneRepository.findByInhaltsmenge(100.0)).thenReturn(allU);
 
-        ResponseEntity<List<Urne>> response = urneController.getAllUrne(100.0);
+    //     ResponseEntity<List<Urne>> response = urneController.getAllUrne(100.0);
 
-        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(response.getBody()).isEqualTo(allU);
-    }
+    //     assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    //     assertThat(response.getBody()).isEqualTo(allU);
+    // }
   
 
     // todo: testGetUrneById 

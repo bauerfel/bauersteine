@@ -38,7 +38,8 @@ public class UrneController {
         if (!userRoles.contains("prod")) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
-        Urne uDAO = new Urne(uDTO.getBeschreibung(), uDTO.getMaterial(), uDTO.getPreis(), uDTO.getInhaltsmenge());
+        String userEmail = jwt.getClaimAsString("email");
+        Urne uDAO = new Urne(uDTO.getBeschreibung(), uDTO.getMaterial(), uDTO.getPreis(), uDTO.getInhaltsmenge(), userEmail );
         Urne u = urneRepository.save(uDAO);
         return new ResponseEntity<>(u, HttpStatus.CREATED);
     }

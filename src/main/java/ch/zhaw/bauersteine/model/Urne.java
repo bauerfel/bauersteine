@@ -32,6 +32,10 @@ public class Urne {
 
     private UrneState state = UrneState.AVAILABLE;
 
+    @NonNull
+    private String userEmail;
+
+
     public void setState(UrneState state) {
         this.state = state;
     }

@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 
 
 @Getter
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @NoArgsConstructor
 @Document("order")
 public class Order {
@@ -26,8 +26,16 @@ public class Order {
     
     private OrderState state = OrderState.ASSIGNED;// Status der Bestellung
 
+    @NonNull
+    private String userEmail;
+
     public void setState(OrderState state) {
         this.state = state;
+    }
+
+    public Order(List<String> urneIds, String userEmail) {
+        this.urneIds = urneIds;
+        this.userEmail = userEmail;
     }
 
     //  @NoArgsConstructor Auskommentieren dann wird der Konstruktor nicht mehr generiert 
