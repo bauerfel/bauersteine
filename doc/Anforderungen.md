@@ -4,6 +4,8 @@ In diesem Abschnitt geht es darum, die grundlegenden Anforderungen für das Proj
 
 # Use-Case Diagramm und Use-Case Beschreibung
 
+![Use-Case Diagramm](figures/ucDiagramm.drawio.svg)
+
 Diese Use Cases zeigen auf, wie die verschiedenen Benutzer mit der Plattform interagieren, von der einfachen Ansicht der Produkte bis hin zur Anpassung und dem Kauf. Der Prozess ist klar darauf ausgelegt, dass sowohl Gastbenutzer als auch registrierte Benutzer und Produzenten spezifische Rollen und Funktionen innerhalb der Applikation haben, die es ermöglichen, den Prozess des Kaufens und Personalisierens einer Urne effizient und benutzerfreundlich zu gestalten.
 
 ## Akteure
