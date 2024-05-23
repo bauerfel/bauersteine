@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,7 +22,7 @@ public class UserController {
     RoleService roleService;
 
     @Autowired
-    UserRepository UserRepository;
+    UserRepository userRepository;
         @PostMapping("/user")
     public ResponseEntity<User> createUser(
             @RequestBody UserCreateDTO fDTO, @AuthenticationPrincipal Jwt jwt) {
@@ -29,7 +30,17 @@ public class UserController {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
         User fDAO = new User(fDTO.getEmail(), fDTO.getName());
-        User f = UserRepository.save(fDAO);
+        User f = userRepository.save(fDAO);
         return new ResponseEntity<>(f, HttpStatus.CREATED);
+    }
+
+        @GetMapping("/me/user")
+    public ResponseEntity<User> getMyUserId(@AuthenticationPrincipal Jwt jwt) {
+        String userEmail = jwt.getClaimAsString("email");
+        User user = userRepository.findFirstByEmail(userEmail);
+        if (user != null) {
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 }
