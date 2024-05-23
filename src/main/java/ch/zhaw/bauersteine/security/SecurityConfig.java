@@ -1,5 +1,7 @@
 package ch.zhaw.bauersteine.security;
 
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -9,6 +11,8 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+
+import ch.zhaw.bauersteine.repository.UserRepository;
 
 import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;
@@ -29,11 +33,8 @@ public class SecurityConfig {
     String issuerUri;
 
     @Autowired
-    //BauersteineRepository bauersteineRepository;
+    UserRepository userRepository;
 
-    //Erklärungen zur Datei SecurityConfig: Mit der Annotation @EnableWebSecurity wird springsecurity aktiviert.
-    // In der filterChain wir festgelegt, welche Endpoints mit Authentisierung geschützt werden.
-    // Im Beispiel unten wird für alle Endpoints, die mit /api beginnen, Authentisierung verlangt.
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
@@ -46,14 +47,14 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // @Bean
-    // @ConditionalOnMissingBean
-    // JwtDecoder jwtDecoder() {
-    //     NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder) JwtDecoders.fromIssuerLocation(issuerUri);
-    //     OAuth2TokenValidator<Jwt> userValidator = new UserValidator(bauersteineRepository);
-    //     OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuerUri);
-    //     OAuth2TokenValidator<Jwt> myValidator = new DelegatingOAuth2TokenValidator<>(withIssuer, userValidator);
-    //     jwtDecoder.setJwtValidator(myValidator);
-    //     return jwtDecoder;
-    // }
+    @Bean
+    @ConditionalOnMissingBean
+    JwtDecoder jwtDecoder() {
+        NimbusJwtDecoder jwtDecoder = (NimbusJwtDecoder) JwtDecoders.fromIssuerLocation(issuerUri);
+        OAuth2TokenValidator<Jwt> userValidator = new UserValidator(userRepository);
+        OAuth2TokenValidator<Jwt> withIssuer = JwtValidators.createDefaultWithIssuer(issuerUri);
+        OAuth2TokenValidator<Jwt> myValidator = new DelegatingOAuth2TokenValidator<>(withIssuer, userValidator);
+        jwtDecoder.setJwtValidator(myValidator);
+        return jwtDecoder;
+    }
 }
