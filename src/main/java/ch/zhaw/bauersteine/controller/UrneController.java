@@ -70,7 +70,19 @@ public class UrneController {
     public List<UrneStateAggregation> getUrneStateAggregation() {
         return urneRepository.getUrneStateAggregation();
     }
+    //Todo: delete nur wenn die Id des Angemeldeten Produzenten übereinstimmt.
+    @DeleteMapping("/urne/{id}")
+    public ResponseEntity<String> deleteUrneById(@PathVariable String id, @AuthenticationPrincipal Jwt jwt) {
+        List<String> userRoles = jwt.getClaimAsStringList("user_roles");
+        Optional<Urne> optUrne = urneRepository.findById(id);
+        Urne urne = optUrne.get();
 
+        if (!userRoles.contains("prod") || !urne.getState().equals("AVAILABLE")) {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
+        urneRepository.deleteById(id);
+        return ResponseEntity.status(HttpStatus.OK).body("DELETED");
+    }
     // delete nur wenn die Id des Angemeldeten Produzenten übereinstimmt.
     // @DeleteMapping("/job")
     // public ResponseEntity<String> deleteAllJobs(@AuthenticationPrincipal Jwt jwt)
