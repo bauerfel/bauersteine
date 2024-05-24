@@ -14,20 +14,26 @@ import org.springframework.web.bind.annotation.RestController;
 import ch.zhaw.bauersteine.model.User;
 import ch.zhaw.bauersteine.model.UserCreateDTO;
 import ch.zhaw.bauersteine.repository.UserRepository;
+import ch.zhaw.bauersteine.service.MailValidatorService;
 import ch.zhaw.bauersteine.service.RoleService;
 @RestController
 @RequestMapping("/api")
 public class UserController {
     @Autowired
     RoleService roleService;
-
     @Autowired
     UserRepository userRepository;
+    @Autowired MailValidatorService mailValidatorService;
+
         @PostMapping("/user")
     public ResponseEntity<User> createUser(
             @RequestBody UserCreateDTO fDTO, @AuthenticationPrincipal Jwt jwt) {
         if (jwt == null) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
+        var mailInformation = mailValidatorService.validateEmail(fDTO.getEmail());
+        if (mailInformation.isDisposable() || !mailInformation.isDns() || !mailInformation.isFormat()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         User fDAO = new User(fDTO.getEmail(), fDTO.getName());
         User f = userRepository.save(fDAO);

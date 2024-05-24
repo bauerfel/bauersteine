@@ -2,7 +2,10 @@ package ch.zhaw.bauersteine.controller;
 
 import java.util.Optional;
 
+import javax.print.attribute.standard.JobState;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.batch.BatchProperties.Job;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -12,8 +15,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import ch.zhaw.bauersteine.model.Mail;
 import ch.zhaw.bauersteine.model.Order;
 import ch.zhaw.bauersteine.model.Urne;
+import ch.zhaw.bauersteine.service.MailService;
 import ch.zhaw.bauersteine.service.OrderService;
 import ch.zhaw.bauersteine.service.RoleService;
 import ch.zhaw.bauersteine.service.UrneService;
@@ -28,6 +33,8 @@ public class ServiceController {
     private UrneService urneService;
     @Autowired
     RoleService roleService;
+    @Autowired
+    private MailService mailService;
 
     @PostMapping("/{orderId}/addUrne/{urneId}")
     public ResponseEntity<Order> addUrneToOrder(@PathVariable String orderId, @PathVariable String urneId,
@@ -45,6 +52,10 @@ public class ServiceController {
             return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
         Optional<Order> updatedOrder = orderService.setOrderToPayed(orderId);
+        if (updatedOrder.isPresent()) {
+            sendMail(jwt.getClaimAsString("email"), updatedOrder);
+            
+        }
         return updatedOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
@@ -55,6 +66,18 @@ public class ServiceController {
         }
         Optional<Urne> updatedUrne = urneService.setUrneToDelivered(urneId);
         return updatedUrne.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+        private void sendMail(String userEmail, Optional<Order> order) {
+        var mail = new Mail();
+        mail.setTo(userEmail);
+        mail.setSubject("Ihre Urnen Bestellung " +order.get().getId());
+        String mailMessage = "Guten Tag die Bestellung wurde erfolgreich " + order.get().getState() + " Danke für Ihre Bestellung";
+        if(order.isPresent() && order.get().getState().equals("DELIVERED")){
+            mailMessage = "Guten Tag die Bestellung wurde erfolgreich " + order.get().getState() + " Danke für Ihre Bestellung ";
+        }
+        mail.setMessage(mailMessage);
+        mailService.sendMail(mail);
     }
 
     // @PostMapping("/{orderId}/deliverOrder")
