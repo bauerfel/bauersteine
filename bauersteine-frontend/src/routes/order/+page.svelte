@@ -2,7 +2,7 @@
     import axios from "axios";
     import { page } from "$app/stores";
     import { onMount } from "svelte";
-    import { jwt_token } from "../../store";
+    import { jwt_token, user, myUserId, myUserEmail } from "../../store";
     const api_root = $page.url.origin;
 
     let orders = [];
@@ -90,16 +90,20 @@
     </thead>
     <tbody>
         {#each orders as order}
-            <tr>
-                <td>{order.id}</td>
-                <td>{order.state}</td>
-                <td>{order.urneIds}</td>
-                <td>
-                    {#if order.state === 'ASSIGNED'}
-                        <button on:click={() => payOrder(order.id)}>Bezahlen</button>
-                    {/if}
-                </td>
-            </tr>
+            {#if order.userEmail === $myUserEmail}
+                <tr>
+                    <td>{order.id}</td>
+                    <td>{order.state}</td>
+                    <td>{order.urneIds}</td>
+                    <td>
+                        {#if order.state === "ASSIGNED"}
+                            <button on:click={() => payOrder(order.id)}
+                                >Bezahlen</button
+                            >
+                        {/if}
+                    </td>
+                </tr>
+            {/if}
         {/each}
     </tbody>
 </table>
