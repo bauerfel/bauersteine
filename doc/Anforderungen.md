@@ -37,5 +37,12 @@ Diese Use Cases zeigen auf, wie die verschiedenen Benutzer mit der Plattform int
 Aktueller stand im Lucidchart
 
 # Prozessmodell (BPMN-Diagramm) mit Erläuterungen 
+Dieses Diagramm bietet eine detaillierte Übersicht über die Abläufe und Entscheidungen, die innerhalb der Bauersteine Graburnen Applikation stattfinden. Es stellt sicher, dass sowohl die Interaktionen der Benutzer als auch die internen Systemprozesse klar definiert und nachvollziehbar sind.
+
+![BPMN Bauersteine](figures\BPMNBauersteine.PNG)
+
+
+
+
 
 # Mockup oder Skizze des UIs 
