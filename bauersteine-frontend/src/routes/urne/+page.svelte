@@ -2,7 +2,7 @@
     import axios from "axios";
     import { page } from "$app/stores";
     import { onMount } from "svelte";
-    import { jwt_token } from "../../store";
+    import { jwt_token,  user, myUserId, myUserEmail} from "../../store";
   
     const api_root = $page.url.origin;
 
@@ -138,6 +138,7 @@
     </thead>
     <tbody>
         {#each urnen as urne}
+        {#if urne.userEmail === $myUserEmail}
             <tr>
                 <td>{urne.beschreibung}</td>
                 <td>{urne.material}</td>
@@ -146,6 +147,7 @@
                 <td>{urne.state}</td>
                 <td>{urne.id}</td>
             </tr>
+        {/if}
         {/each}
     </tbody>
 </table>
