@@ -38,10 +38,4 @@ public class Order {
         this.userEmail = userEmail;
     }
 
-    //  @NoArgsConstructor Auskommentieren dann wird der Konstruktor nicht mehr generiert 
-    //    public Order() {
-    //     this.orderTime = LocalDateTime.now();
-    // }
-
-    //TODO E mail des Käufers
 }

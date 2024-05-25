@@ -17,10 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ch.zhaw.bauersteine.model.OrderCreateDTO;
 import ch.zhaw.bauersteine.model.OrderState;
-import ch.zhaw.bauersteine.model.Urne;
 import ch.zhaw.bauersteine.model.Order;
 import ch.zhaw.bauersteine.repository.OrderRepository;
-import ch.zhaw.bauersteine.service.OrderService;
 
 @RestController
 @RequestMapping("/api")
