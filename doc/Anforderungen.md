@@ -33,7 +33,7 @@ Diese Use Cases zeigen auf, wie die verschiedenen Benutzer mit der Plattform int
 > Personalisierung: Dieser Use Case ist ein Teil der Use Cases „Urne zu Warenkorb hinzufügen“ und „Einkauf tätigen“, da Personalisierungsoptionen während des Kaufvorgangs angefordert und bestätigt werden müssen.
 
 # Fachliches Datenmodell (ER-Modell) mit Erläuterungen
-<!-- TODO: Implementieren -->
+![ER Model](figures\ERModel.png)
 Aktueller stand im Lucidchart
 
 # Prozessmodell (BPMN-Diagramm) mit Erläuterungen 
