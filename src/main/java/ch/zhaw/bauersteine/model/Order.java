@@ -37,5 +37,8 @@ public class Order {
         this.urneIds = urneIds;
         this.userEmail = userEmail;
     }
+    public void setId(String id) {
+        this.id = id;
+    }
 
 }

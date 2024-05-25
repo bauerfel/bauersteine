@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ch.zhaw.bauersteine.model.Order;
 import ch.zhaw.bauersteine.model.OrderState;
 import ch.zhaw.bauersteine.model.Urne;
 import ch.zhaw.bauersteine.model.UrneState;
@@ -50,16 +49,5 @@ public class UrneService {
         return Optional.empty();
     }
 }
-    // public Optional<Urne> setUrneToDelivered(String urneId) {
-    //     Optional<Urne> urneToDeliver = urneRepository.findById(urneId);
-    //     if (urneToDeliver.isPresent()) {
-    //         Urne urne = urneToDeliver.get();
-    //         if (urne.getState() == UrneState.SOLD) {
-    //             urne.setState(UrneState.DELIVERED);
-    //             urneRepository.save(urne);
-    //             return Optional.of(urne);
-    //         }
-    //     }
-    //     return Optional.empty();
-    // }
+
 

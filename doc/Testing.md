@@ -40,6 +40,26 @@ In diesem Abschnitt werden die verschiedenen Stufen der Qualitätssicherung beha
 
 >testGetUrneStateAggregation: Simuliert einen GET-Request an den Endpunkt /api/urne/aggregation/state. Überprüft, ob die Antwort den Status 200 OK zurückgibt. Überprüft die Struktur und die Werte der zurückgegebenen JSON-Daten.
 
+## OrderControllerTest
+>testCreateOrder: Simuliert die Erstellung einer Bestellung durch einen authentifizierten Benutzer.
+Überprüft, ob die Antwort den Status 201 Created zurückgibt und ob das JSON-Antwortobjekt die erwarteten Felder und Werte enthält.
+>testCreateOrderUnauthorized: Simuliert den Versuch, eine Bestellung ohne Authentifizierung zu erstellen.
+Überprüft, ob die Antwort den Status 403 FORBIDDEN zurückgibt
+
+>testGetAllOrder: Testet den Endpunkt /api/order, um alle Bestellungen abzurufen.
+Überprüft, ob die Antwort den Status 200 OK zurückgibt und ob das JSON-Antwortobjekt die erwarteten Felder und Werte enthält.
+>testGetAllOrderByState:Testet den Endpunkt /api/order mit dem Parameter state, um Bestellungen mit einem bestimmten Zustand abzurufen.
+Überprüft, ob die Antwort den Status 200 OK zurückgibt und ob das JSON-Antwortobjekt die erwarteten Felder und Werte enthält.
+
+>testGetOrderById: Testet den Endpunkt /api/order/{id}, um eine spezifische Bestellung anhand der ID abzurufen.
+Überprüft, ob die Antwort den Status 200 OK zurückgibt und ob das JSON-Antwortobjekt die erwarteten Felder und Werte enthält.
+>testGetOrderByIdNotFound: Testet den Endpunkt /api/order/{id}, um sicherzustellen, dass eine 404 Not Found-Antwort zurückgegeben wird, wenn die Bestellung mit der angegebenen ID nicht existiert.
+
+>testGetOrderByUserEmailAndState: Testet den Endpunkt /api/order mit den Parametern userEmail und state, um Bestellungen für einen bestimmten Benutzer und Zustand abzurufen.
+Überprüft, ob die Antwort den Status 200 OK zurückgibt und ob das JSON-Antwortobjekt die erwarteten Felder und Werte enthält.
+
+>testGetOrderByUserEmailAndState: Testet den Endpunkt /api/order/byEmailAndStatus, um Bestellungen für eine bestimmte E-Mail-Adresse und einen bestimmten Status abzurufen. Überprüft, ob die Antwort den Status 200 OK zurückgibt und ob das JSON-Antwortobjekt die erwarteten Felder und Werte enthält. Stellt sicher, dass die Bestellung mit der ID "1", den Urnen-IDs "urne1" und "urne2", der E-Mail-Adresse "user@example.com" und dem Status ASSIGNED korrekt zurückgegeben wird.
+
 # Beschreibung der End-to-End Tests 
 
 # Erkenntnisse aus der Analyse mit SonarQube

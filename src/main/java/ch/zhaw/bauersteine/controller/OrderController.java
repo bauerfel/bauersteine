@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ch.zhaw.bauersteine.model.OrderCreateDTO;
 import ch.zhaw.bauersteine.model.OrderState;
+
 import ch.zhaw.bauersteine.model.Order;
 import ch.zhaw.bauersteine.repository.OrderRepository;
 
@@ -42,11 +43,11 @@ public class OrderController {
     }
 
     @GetMapping("/order")
-    public ResponseEntity<List<Order>> getAllOrder(
-            @RequestParam(required = false) Double is) {
+    public ResponseEntity<List<Order>> getAllOrder(@RequestParam(required = false) String state) {
         List<Order> allO;
-        if (is != null) {
-            allO = orderRepository.findByState(is);
+        if (state != null) {
+            OrderState orderState = OrderState.valueOf(state);
+            allO = orderRepository.findByState(orderState);
             return new ResponseEntity<>(allO, HttpStatus.OK);
         } else {
             allO = orderRepository.findAll();
