@@ -65,14 +65,29 @@
             headers: { Authorization: "Bearer " + $jwt_token },
         };
         axios(config)
-        .then(function (response) {
-            alert("Urne deleted");
-            getUrnen();
-        })
-        .catch(function (error) {
-            alert("Could not delete Urne");
+            .then(function (response) {
+                alert("Urne deleted");
+                getUrnen();
+            })
+            .catch(function (error) {
+                alert("Could not delete Urne");
+                console.log(error);
+            });
+    }
+
+    async function deliverUrne(urneId) {
+        try {
+            const response = await axios.post(
+                `${api_root}/api/service/${urneId}/deliverUrne`,
+                {},
+                { headers: { Authorization: "Bearer " + $jwt_token } }
+            );
+            alert("Urne delivered");
+            // Aktualisiere die Bestellungsliste nach dem Setzen auf "delivered"
+        } catch (error) {
+            alert("Could not set Urne to delivered");
             console.log(error);
-        });
+        }
     }
 </script>
 
@@ -151,6 +166,7 @@
             <th scope="col">Inhaltsmenge</th>
             <th scope="col">State</th>
             <th scope="col">UrneId</th>
+            <th scope="col">Deliver</th>
             <th scope="col">Delete</th>
         </tr>
     </thead>
@@ -164,6 +180,19 @@
                     <td>{urne.inhaltsmenge}</td>
                     <td>{urne.state}</td>
                     <td>{urne.id}</td>
+                    <td>
+                        {#if urne.state === "SOLD"}
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                on:click={() => {
+                                    deliverUrne(urne.id);
+                                }}
+                            >
+                                X
+                            </button>
+                        {/if}
+                    </td>
                     <td>
                         <button
                             type="button"

@@ -53,28 +53,6 @@
                 console.log(error);
             });
     }
-
-    // function createorder() {
-    //     var config = {
-    //         method: "post",
-    //         url: api_root + "/api/order",
-    //         headers: {
-    //             Authorization: "Bearer " + $jwt_token,
-    //             //"Content-Type": "application/json",
-    //         },
-    //         data: order,
-    //     };
-
-    //     axios(config)
-    //         .then(function (response) {
-    //             alert("order created");
-    //             getorders();
-    //         })
-    //         .catch(function (error) {
-    //             alert("Could not create order");
-    //             console.log(error);
-    //         });
-    // }
 </script>
 
 <h1>Deine Bestellungen</h1>
@@ -98,7 +76,7 @@
                     <td>{order.urneIds}</td>
                     <td>
                         {#if order.state === "ASSIGNED"}
-                            <button on:click={() => payOrder(order.id)}
+                            <button type="button" class="btn btn-secondary" on:click={() => payOrder(order.id)}
                                 >Bezahlen</button
                             >
                         {/if}

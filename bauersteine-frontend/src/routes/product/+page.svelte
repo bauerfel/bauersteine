@@ -136,8 +136,8 @@ function parseJwt(token) {
                     {#if urne.state === "ASSIGNED" || urne.state === "SOLD" || urne.state === "DELIVERED"}
                     <span class="badge bg-secondary">Ausverkauft</span> 
                     {:else}
-                    <button on:click={() => assignToMyOrder(urne.id)}>
-                        Zu meiner Bestellung hinzufügen
+                    <button type="button" class="btn btn-secondary" on:click={() => assignToMyOrder(urne.id)}>
+                        Zu Bestellung hinzufügen
                     </button>
                     {/if}
                 </td>

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import ch.zhaw.bauersteine.model.Mail;
 import ch.zhaw.bauersteine.model.Order;
 import ch.zhaw.bauersteine.model.Urne;
+import ch.zhaw.bauersteine.repository.UrneRepository;
 import ch.zhaw.bauersteine.service.MailService;
 import ch.zhaw.bauersteine.service.OrderService;
 import ch.zhaw.bauersteine.service.RoleService;
@@ -36,6 +37,8 @@ public class ServiceController {
     RoleService roleService;
     @Autowired
     private MailService mailService;
+    @Autowired
+    UrneRepository urneRepository;
 
     @PostMapping("/{orderId}/addUrne/{urneId}")
     public ResponseEntity<Order> addUrneToOrder(@PathVariable String orderId, @PathVariable String urneId,
@@ -62,7 +65,9 @@ public class ServiceController {
 
     @PostMapping("/{urneId}/deliverUrne")
     public ResponseEntity<Urne> setUrneToDelivered(@PathVariable String urneId, @AuthenticationPrincipal Jwt jwt) {
-        if (!roleService.hasRole("prod", jwt)) {
+        String email = jwt.getClaimAsString("email");
+        Urne urne = urneRepository.findById(urneId).orElse(null);
+        if (!email.equals(urne.getUserEmail())) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
         Optional<Urne> updatedUrne = urneService.setUrneToDelivered(urneId);
@@ -93,6 +98,6 @@ public class ServiceController {
         return updatedOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    
+
 
 }
