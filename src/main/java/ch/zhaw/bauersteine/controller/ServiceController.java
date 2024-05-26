@@ -88,15 +88,15 @@ public class ServiceController {
         mailService.sendMail(mail);
     }
 
-    @DeleteMapping("/{orderId}/removeUrne/{urneId}")
-    public ResponseEntity<Order> removeUrneFromOrder(@PathVariable String orderId, @PathVariable String urneId,
-            @AuthenticationPrincipal Jwt jwt) {
-        if (jwt == null) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }
-        Optional<Order> updatedOrder = orderService.removeUrneFromOrder(orderId, urneId);
-        return updatedOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
-    }
+    // @DeleteMapping("/{orderId}/removeUrne/{urneId}")
+    // public ResponseEntity<Order> removeUrneFromOrder(@PathVariable String orderId, @PathVariable String urneId,
+    //         @AuthenticationPrincipal Jwt jwt) {
+    //     if (jwt == null) {
+    //         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    //     }
+    //     Optional<Order> updatedOrder = orderService.removeUrneFromOrder(orderId, urneId);
+    //     return updatedOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    // }
 
 
 

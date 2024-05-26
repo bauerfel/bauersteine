@@ -77,16 +77,16 @@ public class OrderController {
  
     }
 
-        @DeleteMapping("/order/{orderId}")
-    public ResponseEntity<Void> deleteOrder(@PathVariable String orderId, @AuthenticationPrincipal Jwt jwt) {
-        String email = jwt.getClaimAsString("email");
-        Order order = orderRepository.findById(orderId).orElse(null);
-        if (!email.equals(order.getUserEmail())) {
-            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
-        }else if (!order.getState().equals(OrderState.ASSIGNED)) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
-        boolean deleted = orderService.deleteOrder(orderId);
-        return deleted ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
+    //     @DeleteMapping("/order/{orderId}")
+    // public ResponseEntity<Void> deleteOrder(@PathVariable String orderId, @AuthenticationPrincipal Jwt jwt) {
+    //     String email = jwt.getClaimAsString("email");
+    //     Order order = orderRepository.findById(orderId).orElse(null);
+    //     if (!email.equals(order.getUserEmail())) {
+    //         return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    //     }else if (!order.getState().equals(OrderState.ASSIGNED)) {
+    //         return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+    //     }
+    //     boolean deleted = orderService.deleteOrder(orderId);
+    //     return deleted ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    // }
 }
