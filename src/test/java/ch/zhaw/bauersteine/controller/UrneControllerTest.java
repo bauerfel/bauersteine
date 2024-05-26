@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,6 +30,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ch.zhaw.bauersteine.model.Urne;
 import ch.zhaw.bauersteine.model.UrneCreateDTO;
+import ch.zhaw.bauersteine.model.UrneState;
 import ch.zhaw.bauersteine.model.UrneStateAggregation;
 import ch.zhaw.bauersteine.repository.UrneRepository;
 
@@ -190,4 +192,24 @@ class UrneControllerTest {
                 .andExpect(jsonPath("$[1].urneIds[0]").value("urn3"))
                 .andExpect(jsonPath("$[1].count").value("1"));
     }
+
+    //Delete
+    @Test
+@WithMockUser
+void testDeleteUrneByIdForbidden() throws Exception {
+    Urne urne = new Urne("testUrne", "Testmaterial", 1000, 5, "otheruser@example.com");
+    urne.setId("1");
+    urne.setState(UrneState.AVAILABLE);
+
+    List<String> userRoles = Collections.singletonList("user"); // Rolle ist nicht "prod"
+
+    when(urneRepository.findById("1")).thenReturn(Optional.of(urne));
+    when(jwt.getClaimAsStringList("user_roles")).thenReturn(userRoles);
+    when(jwt.getClaimAsString("email")).thenReturn("user@example.com");
+
+    mockMvc.perform(delete("/api/urne/1")
+            .with(SecurityMockMvcRequestPostProcessors.jwt().jwt(jwt))
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isForbidden());
+}
 }

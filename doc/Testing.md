@@ -40,6 +40,8 @@ In diesem Abschnitt werden die verschiedenen Stufen der Qualitätssicherung beha
 
 >testGetUrneStateAggregation: Simuliert einen GET-Request an den Endpunkt /api/urne/aggregation/state. Überprüft, ob die Antwort den Status 200 OK zurückgibt. Überprüft die Struktur und die Werte der zurückgegebenen JSON-Daten.
 
+>testDeleteUrneByIdForbidden: Testet den Endpunkt /api/urne/{id}, um sicherzustellen, dass eine Löschanfrage abgelehnt wird, wenn der Benutzer nicht die erforderliche Rolle hat, die Urne nicht im Status AVAILABLE ist oder die E-Mail-Adresse nicht übereinstimmt. Überprüft, ob die Antwort den Status 403 Forbidden zurückgibt.
+
 ## OrderControllerTest
 >testCreateOrder: Simuliert die Erstellung einer Bestellung durch einen authentifizierten Benutzer.
 Überprüft, ob die Antwort den Status 201 Created zurückgibt und ob das JSON-Antwortobjekt die erwarteten Felder und Werte enthält.
