@@ -63,5 +63,29 @@ In diesem Abschnitt werden die verschiedenen Stufen der Qualitätssicherung beha
 >testGetOrderByUserEmailAndState: Testet den Endpunkt /api/order/byEmailAndStatus, um Bestellungen für eine bestimmte E-Mail-Adresse und einen bestimmten Status abzurufen. Überprüft, ob die Antwort den Status 200 OK zurückgibt und ob das JSON-Antwortobjekt die erwarteten Felder und Werte enthält. Stellt sicher, dass die Bestellung mit der ID "1", den Urnen-IDs "urne1" und "urne2", der E-Mail-Adresse "user@example.com" und dem Status ASSIGNED korrekt zurückgegeben wird.
 
 # Beschreibung der End-to-End Tests 
-
+>Die end to end Tests wurden Manuell umgesetzt
 # Erkenntnisse aus der Analyse mit SonarQube
+Konsistenz (Consistency): 25 Probleme
+Es gibt 25 Fälle, in denen der Code nicht konsistent ist. Dies könnte unterschiedliche Namenskonventionen, Formatierungsprobleme oder uneinheitliche Nutzung von Code-Stilen umfassen.
+Intention (Intentionality): 19 Probleme
+Es gibt 19 Probleme, bei denen der Code nicht klar ausdrückt, was er tun soll. Dies könnte durch unklare oder nicht aussagekräftige Benennungen oder durch zu komplexe Logik verursacht werden.
+Anpassbarkeit (Adaptability): 6 Probleme
+Der Code weist 6 Fälle auf, in denen er nicht leicht anpassbar ist. Dies könnte darauf hinweisen, dass der Code schwer zu ändern oder zu erweitern ist.
+Verantwortlichkeit (Responsibility): 1 Problem
+Es gibt 1 Problem, das die Verantwortung oder den Verantwortungsbereich des Codes betrifft. Dies könnte darauf hinweisen, dass eine Klasse oder Methode zu viel Verantwortung hat.
+Software Qualität
+Sicherheit (Security): 1 Problem
+Ein Sicherheitsproblem wurde identifiziert. Dies ist besonders kritisch, da Sicherheitsprobleme oft zu Sicherheitslücken führen können.
+Zuverlässigkeit (Reliability): 24 Probleme
+Es gibt 24 Probleme, die die Zuverlässigkeit des Codes betreffen. Dies könnte bedeuten, dass der Code unter bestimmten Bedingungen fehlerhaft funktioniert oder abstürzt.
+Wartbarkeit (Maintainability): 42 Probleme
+Es wurden 42 Probleme in Bezug auf die Wartbarkeit des Codes festgestellt. Dies bedeutet, dass der Code schwer zu warten oder zu verbessern ist, was zu erhöhten Wartungskosten und -aufwand führen kann.
+Schweregrad
+Hohe Priorität (High): 11 Probleme
+Es gibt 11 Probleme, die als hoch priorisiert eingestuft werden. Diese Probleme sollten sofort behoben werden, da sie gravierende Auswirkungen auf den Code haben können.
+Mittlere Priorität (Medium): 33 Probleme
+Es wurden 33 mittelpriorisierte Probleme identifiziert. Diese sollten ebenfalls zeitnah behoben werden, um die Qualität des Codes zu verbessern.
+Niedrige Priorität (Low): 7 Probleme
+Es gibt 7 Probleme mit niedriger Priorität, die langfristig behoben werden können.
+Zusammenfassung
+Die Analyse zeigt, dass es einige kritische Punkte in deinem Code gibt, insbesondere in Bezug auf Konsistenz, Zuverlässigkeit und Wartbarkeit. Es wird empfohlen, die hoch und mittel priorisierten Probleme zuerst anzugehen, um die allgemeine Codequalität zu verbessern und die Software sicherer und zuverlässiger zu machen.

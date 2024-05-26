@@ -34,7 +34,38 @@ Diese Use Cases zeigen auf, wie die verschiedenen Benutzer mit der Plattform int
 
 # Fachliches Datenmodell (ER-Modell) mit Erläuterungen
 ![ER Model](figures\ERModel.png)
-Aktueller stand im Lucidchart
+Entitäten und Attribute
+Urne (Urn)
+
+Attribute:
+Material: Das Material, aus dem die Urne besteht.
+Preis (Price): Der Preis der Urne.
+Beschreibung (Description): Eine Beschreibung der Urne.
+Inhaltsmenge (Content Volume): Die Menge in Litern, die die Urne fasst.
+State: Der Zustand der Urne.
+userEmail: Die E-Mail des Benutzers, der die Urne erstellt oder besitzt.
+Order
+
+Attribute:
+state: Der Zustand der Bestellung.
+urnIds: Die IDs der Urnen, die in der Bestellung enthalten sind.
+userEmail: Die E-Mail des Benutzers, der die Bestellung aufgegeben hat.
+User
+
+Attribute:
+Name: Der Name des Benutzers.
+email: Die E-Mail des Benutzers.
+Beziehungen
+Urne - Order
+Eine Urne kann in vielen Bestellungen vorkommen (1
+Beziehung). Dies wird durch die Beziehung „has“ dargestellt.
+Order - User
+Ein Benutzer kann viele Bestellungen haben, aber eine Bestellung ist nur einem Benutzer zugeordnet (m
+Beziehung). Dies wird ebenfalls durch die Beziehung „has“ dargestellt.
+Zusammenhänge
+Die Beziehung zwischen Urne und Order zeigt, dass eine Urne zu mehreren Bestellungen gehören kann, aber jede Bestellung mindestens eine Urne enthält.
+Die Beziehung zwischen Order und User zeigt, dass ein Benutzer mehrere Bestellungen aufgeben kann, aber jede Bestellung wird von einem bestimmten Benutzer aufgegeben.
+Dieses Modell hilft dabei, die Struktur der Datenbank zu verstehen und zeigt, wie die verschiedenen Entitäten miteinander interagieren.
 
 # Prozessmodell (BPMN-Diagramm) mit Erläuterungen 
 Dieses Diagramm bietet eine detaillierte Übersicht über die Abläufe und Entscheidungen, die innerhalb der Bauersteine Graburnen Applikation stattfinden. Es stellt sicher, dass sowohl die Interaktionen der Benutzer als auch die internen Systemprozesse klar definiert und nachvollziehbar sind.
@@ -46,3 +77,4 @@ Dieses Diagramm bietet eine detaillierte Übersicht über die Abläufe und Entsc
 
 
 # Mockup oder Skizze des UIs 
+![BPMN Bauersteine](figures\Mockup.PNG)
