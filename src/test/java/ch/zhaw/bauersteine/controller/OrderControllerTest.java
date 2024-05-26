@@ -29,6 +29,8 @@ import ch.zhaw.bauersteine.model.Order;
 import ch.zhaw.bauersteine.model.OrderCreateDTO;
 import ch.zhaw.bauersteine.model.OrderState;
 import ch.zhaw.bauersteine.repository.OrderRepository;
+import ch.zhaw.bauersteine.service.OrderService;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @WebMvcTest(OrderController.class)
@@ -39,7 +41,8 @@ class OrderControllerTest {
 
     @MockBean
     private OrderRepository orderRepository;
-
+    @MockBean
+    private OrderService orderService;
     @Mock
     private Jwt jwt;
 
@@ -165,10 +168,10 @@ class OrderControllerTest {
         order1.setId("1");
         order1.setState(OrderState.ASSIGNED);
         List<Order> orderList = Collections.singletonList(order1);
-    
+
         when(orderRepository.findByUserEmailAndState("user@example.com", OrderState.ASSIGNED)).thenReturn(orderList);
         when(jwt.getClaimAsString("email")).thenReturn("user@example.com");
-    
+
         mockMvc.perform(get("/api/order/byEmailAndStatus")
                 .param("email", "user@example.com")
                 .param("status", "ASSIGNED")
