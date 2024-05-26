@@ -53,6 +53,24 @@
                 console.log(error);
             });
     }
+    function removeUrneFromOrder(orderId, urneId) {
+        var config = {
+            method: "delete",
+            url: api_root + `/api/service/${orderId}/removeUrne/${urneId}`,
+            headers: {
+                Authorization: "Bearer " + $jwt_token,
+            },
+        };
+        axios(config)
+            .then(function (response) {
+                alert("Urne removed from order");
+                getOrders(); // Aktualisiere die Bestellungsliste nach dem Entfernen
+            })
+            .catch(function (error) {
+                alert("Could not remove Urne from order");
+                console.log(error);
+            });
+    }
 </script>
 
 <h1>Deine Bestellungen</h1>
@@ -77,7 +95,9 @@
                         <div class="card mb-3" style="max-width: 540px;">
                             <div class="row g-0">
                                 <div class="col-md-4">
-                                    <img src="/images/Urne.jpeg" class="img-fluid rounded-start" alt="Urne Image">
+                                    {#if order.state === "ASSIGNED"}
+                                    <button class="btn btn-danger" on:click={() => removeUrneFromOrder(order.id, urneId)}>Entfernen</button>
+                                    {/if}
                                 </div>
                                 <div class="col-md-8">
                                     <div class="card-body">
