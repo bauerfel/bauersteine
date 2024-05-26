@@ -17,10 +17,26 @@
 </script>
 
 {#if $isAuthenticated}
-
     <h1>Willkommen zu Bauersteine Graburnen</h1>
 
-    
+    <p>
+        Wir freuen uns, Sie auf unserer Homepage begrüssen zu dürfen. Hier finden
+        Sie alle Informationen und Dienstleistungen, die wir Ihnen anbieten.
+        Unsere Mission ist es, Ihnen die besten Produkte und den besten Service
+        zu bieten, um Ihre Bedürfnisse und Wünsche zu erfüllen.
+    </p>
+    <p>
+        Stöbern Sie durch unsere Kategorien, entdecken Sie unsere neuesten
+        Angebote und lassen Sie sich von unseren exklusiven Produkten
+        inspirieren. Unser engagiertes Team steht Ihnen jederzeit zur Verfügung,
+        um Ihre Fragen zu beantworten und Ihnen bei Ihren Anliegen zu helfen.
+    </p>
+    <p>
+        Wir wünschen Ihnen viel Freude beim Erkunden unserer Webseite und
+        hoffen, dass Sie alles finden, was Sie suchen. Zögern Sie nicht, uns zu
+        kontaktieren, wenn Sie Unterstützung benötigen.
+    </p>
+
     <!-- Beispiel für die Verwendung von Bildern im Ordner 'static/images' -->
 {:else}
     <div class="container mt-5">
@@ -85,4 +101,3 @@
         </div>
     </div>
 {/if}
-

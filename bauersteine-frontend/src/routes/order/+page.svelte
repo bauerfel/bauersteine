@@ -88,32 +88,50 @@
         {#each orders as order}
             {#if order.userEmail === $myUserEmail}
                 <tr>
-                    
                     <td>{order.id}</td>
                     <td>{order.state}</td>
-                    <td> {#each order.urneIds as urneId}
-                        <div class="card mb-3" style="max-width: 540px;">
-                            <div class="row g-0">
-                                <div class="col-md-4">
-                                    {#if order.state === "ASSIGNED"}
-                                    <button class="btn btn-danger" on:click={() => removeUrneFromOrder(order.id, urneId)}>Entfernen</button>
-                                    {/if}
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Urne ID: {urneId}</h5>
-                                        <p class="card-text">Beschreibung der Urne...</p>
-                                        <p class="card-text"><small class="text-body-secondary">Letztes Update vor 3 Minuten</small></p>
-                                        <!-- <button class="btn btn-primary" on:click={() => deliverUrne(urneId)}>Liefern</button> -->
+                    <td>
+                        {#each order.urneIds as urneId}
+                            <div class="card mb-3" style="max-width: 540px;">
+                                <div class="row g-0">
+                                    <div class="col-md-4">
+                                        <img
+                                            src="/images/Urne.jpeg"
+                                            class="img-fluid rounded-start"
+                                            alt="Urne Image"
+                                        />
+                                    </div>
+                                    <div class="col-md-8">
+                                        <div class="card-body">
+                                            <h5 class="card-title">
+                                                Urne ID: {urneId}
+                                            </h5>
+                                            
+                                            <p class="card-text">
+                                                
+                                            </p>
+                                            {#if order.state === "ASSIGNED"}
+                                                <button
+                                                    class="btn btn-danger"
+                                                    on:click={() =>
+                                                        removeUrneFromOrder(
+                                                            order.id,
+                                                            urneId,
+                                                        )}>Entfernen</button
+                                                >
+                                            {/if}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {/each}
-                </td>
+                        {/each}
+                    </td>
                     <td>
                         {#if order.state === "ASSIGNED"}
-                            <button type="button" class="btn btn-secondary" on:click={() => payOrder(order.id)}
+                            <button
+                                type="button"
+                                class="btn btn-secondary"
+                                on:click={() => payOrder(order.id)}
                                 >Bezahlen</button
                             >
                         {/if}
