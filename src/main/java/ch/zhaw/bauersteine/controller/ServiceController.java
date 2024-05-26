@@ -10,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -54,7 +55,7 @@ public class ServiceController {
         Optional<Order> updatedOrder = orderService.setOrderToPayed(orderId);
         if (updatedOrder.isPresent()) {
             sendMail(jwt.getClaimAsString("email"), updatedOrder);
-            
+
         }
         return updatedOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -68,23 +69,30 @@ public class ServiceController {
         return updatedUrne.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-        private void sendMail(String userEmail, Optional<Order> order) {
+    private void sendMail(String userEmail, Optional<Order> order) {
         var mail = new Mail();
         mail.setTo(userEmail);
-        mail.setSubject("Ihre Urnen Bestellung " +order.get().getId());
-        String mailMessage = "Guten Tag die Bestellung wurde erfolgreich " + order.get().getState() + " Danke für Ihre Bestellung";
-        if(order.isPresent() && order.get().getState().equals("DELIVERED")){
-            mailMessage = "Guten Tag die Bestellung wurde erfolgreich " + order.get().getState() + " Danke für Ihre Bestellung ";
+        mail.setSubject("Ihre Urnen Bestellung " + order.get().getId());
+        String mailMessage = "Guten Tag die Bestellung wurde erfolgreich " + order.get().getState()
+                + " Danke für Ihre Bestellung";
+        if (order.isPresent() && order.get().getState().equals("DELIVERED")) {
+            mailMessage = "Guten Tag die Bestellung wurde erfolgreich " + order.get().getState()
+                    + " Danke für Ihre Bestellung ";
         }
         mail.setMessage(mailMessage);
         mailService.sendMail(mail);
     }
 
-    // @PostMapping("/{orderId}/deliverOrder")
-    // public ResponseEntity<Order> setOrderToDelivered(@PathVariable String
-    // orderId) {
-    // Optional<Order> updatedOrder = orderService.setOrderToDelivered(orderId);
-    // return updatedOrder.map(ResponseEntity::ok).orElseGet(() ->
-    // ResponseEntity.notFound().build());
-    // }
+    @DeleteMapping("/{orderId}/removeUrne/{urneId}")
+    public ResponseEntity<Order> removeUrneFromOrder(@PathVariable String orderId, @PathVariable String urneId,
+            @AuthenticationPrincipal Jwt jwt) {
+        if (jwt == null) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }
+        Optional<Order> updatedOrder = orderService.removeUrneFromOrder(orderId, urneId);
+        return updatedOrder.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    
+
 }

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.jwt.Jwt;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,9 +18,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ch.zhaw.bauersteine.model.OrderCreateDTO;
 import ch.zhaw.bauersteine.model.OrderState;
-
+import ch.zhaw.bauersteine.model.UrneState;
 import ch.zhaw.bauersteine.model.Order;
 import ch.zhaw.bauersteine.repository.OrderRepository;
+import ch.zhaw.bauersteine.service.OrderService;
 
 @RestController
 @RequestMapping("/api")
@@ -27,6 +29,9 @@ public class OrderController {
 
     @Autowired
     OrderRepository orderRepository;
+
+    @Autowired
+    OrderService orderService;
 
     @PostMapping("/order")
     public ResponseEntity<Order> createOrder(
@@ -69,5 +74,19 @@ public class OrderController {
             @RequestParam String email, @RequestParam OrderState status) {
         List<Order> orders = orderRepository.findByUserEmailAndState(email, status);
         return new ResponseEntity<>(orders, HttpStatus.OK);
+ 
+    }
+
+        @DeleteMapping("/order/{orderId}")
+    public ResponseEntity<Void> deleteOrder(@PathVariable String orderId, @AuthenticationPrincipal Jwt jwt) {
+        String email = jwt.getClaimAsString("email");
+        Order order = orderRepository.findById(orderId).orElse(null);
+        if (!email.equals(order.getUserEmail())) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+        }else if (!order.getState().equals(OrderState.ASSIGNED)) {
+            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
+        }
+        boolean deleted = orderService.deleteOrder(orderId);
+        return deleted ? new ResponseEntity<>(HttpStatus.OK) : new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 }
