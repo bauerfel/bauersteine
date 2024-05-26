@@ -1,1 +1,4 @@
-/* In dieser Datei können globale Styles definiert werden */
+.small-logo {
+    width: 200px;
+    height: 40px;
+}

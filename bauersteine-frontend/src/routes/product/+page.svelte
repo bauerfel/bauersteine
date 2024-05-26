@@ -111,7 +111,32 @@ function parseJwt(token) {
 </script>
 
 <h1>Alle Urnen</h1>
-<table class="table">
+
+<div class="row">
+    {#each urnen as urne}
+    <div class="col-md-4 mb-3">
+        <div class="card">
+            <img src="/images/Urne.jpeg" class="card-img-top" alt="Urne Image">
+            <div class="card-body">
+                <h5 class="card-title">{urne.beschreibung}</h5>
+                <p class="card-text">Material: {urne.material}</p>
+                <p class="card-text">Preis: {urne.preis} €</p>
+                <p class="card-text">Inhaltsmenge: {urne.inhaltsmenge} Liter</p>
+                <!-- <p class="card-text">State: {urne.state}</p>
+                <p class="card-text">ID: {urne.id}</p> -->
+                {#if urne.state === "ASSIGNED" || urne.state === "SOLD" || urne.state === "DELIVERED"}
+                <span class="badge bg-secondary">Ausverkauft</span>
+                {:else}
+                <button type="button" class="btn btn-secondary" on:click={() => assignToMyOrder(urne.id)}>
+                    Zu Bestellung hinzufügen
+                </button>
+                {/if}
+            </div>
+        </div>
+    </div>
+    {/each}
+</div>
+<!-- <table class="table">
     <thead>
         <tr>
             <th scope="col">Beschreibung</th>
@@ -144,4 +169,4 @@ function parseJwt(token) {
             </tr>
         {/each}
     </tbody>
-</table>
+</table> -->

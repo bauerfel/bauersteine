@@ -17,9 +17,11 @@
 </script>
 
 {#if $isAuthenticated}
-    <h1>Willkommen zu Bauersteine Graburnen!</h1>
+
+    <h1>Willkommen zu Bauersteine Graburnen</h1>
+
+    
     <!-- Beispiel für die Verwendung von Bildern im Ordner 'static/images' -->
-    <img src="/images/vite.svg" alt="Vite Logo" />
 {:else}
     <div class="container mt-5">
         <div class="row justify-content-center">

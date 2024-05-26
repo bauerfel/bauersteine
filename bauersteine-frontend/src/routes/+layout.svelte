@@ -6,7 +6,7 @@
 
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Bauersteine</a>
+    <a class="navbar-brand" href="/"><img src="/images/Bauersteine.png" class="img small-logo" alt="Bauersteine" /></a>
     <button
       class="navbar-toggler"
       type="button"
