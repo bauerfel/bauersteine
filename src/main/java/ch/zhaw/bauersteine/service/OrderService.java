@@ -78,43 +78,43 @@ public class OrderService {
         return Optional.empty();
     }
 
-    // public Optional<Order> removeUrneFromOrder(String orderId, String urneId) {
-    //     Optional<Order> orderToUpdate = orderRepository.findById(orderId);
-    //     if (orderToUpdate.isPresent()) {
-    //         Order order = orderToUpdate.get();
-    //         if (order.getUrneIds().contains(urneId)) {
-    //             order.getUrneIds().remove(urneId);
-    //             orderRepository.save(order);
+    public Optional<Order> removeUrneFromOrder(String orderId, String urneId) {
+        Optional<Order> orderToUpdate = orderRepository.findById(orderId);
+        if (orderToUpdate.isPresent()) {
+            Order order = orderToUpdate.get();
+            if (order.getUrneIds().contains(urneId)) {
+                order.getUrneIds().remove(urneId);
+                orderRepository.save(order);
 
-    //             Optional<Urne> urneToUpdate = urneRepository.findById(urneId);
-    //             if (urneToUpdate.isPresent()) {
-    //                 Urne urne = urneToUpdate.get();
-    //                 urne.setState(UrneState.AVAILABLE);
-    //                 urneRepository.save(urne);
-    //             }
+                Optional<Urne> urneToUpdate = urneRepository.findById(urneId);
+                if (urneToUpdate.isPresent()) {
+                    Urne urne = urneToUpdate.get();
+                    urne.setState(UrneState.AVAILABLE);
+                    urneRepository.save(urne);
+                }
 
-    //             return Optional.of(order);
-    //         }
-    //     }
-    //     return Optional.empty();
-    // }
+                return Optional.of(order);
+            }
+        }
+        return Optional.empty();
+    }
 
 
-    // public boolean deleteOrder(String orderId) {
-    //     Optional<Order> orderToDelete = orderRepository.findById(orderId);
-    //     if (orderToDelete.isPresent()) {
-    //         Order order = orderToDelete.get();
-    //         for (String urneId : order.getUrneIds()) {
-    //             Optional<Urne> urneToUpdate = urneRepository.findById(urneId);
-    //             if (urneToUpdate.isPresent()) {
-    //                 Urne urne = urneToUpdate.get();
-    //                 urne.setState(UrneState.AVAILABLE);
-    //                 urneRepository.save(urne);
-    //             }
-    //         }
-    //         orderRepository.deleteById(orderId);
-    //         return true;
-    //     }
-    //     return false;
-    // }
+    public boolean deleteOrder(String orderId) {
+        Optional<Order> orderToDelete = orderRepository.findById(orderId);
+        if (orderToDelete.isPresent()) {
+            Order order = orderToDelete.get();
+            for (String urneId : order.getUrneIds()) {
+                Optional<Urne> urneToUpdate = urneRepository.findById(urneId);
+                if (urneToUpdate.isPresent()) {
+                    Urne urne = urneToUpdate.get();
+                    urne.setState(UrneState.AVAILABLE);
+                    urneRepository.save(urne);
+                }
+            }
+            orderRepository.deleteById(orderId);
+            return true;
+        }
+        return false;
+    }
 }
