@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import ch.zhaw.bauersteine.model.Urne;
 import ch.zhaw.bauersteine.model.UrneCreateDTO;
+import ch.zhaw.bauersteine.model.UrneState;
 import ch.zhaw.bauersteine.model.UrneStateAggregation;
 import ch.zhaw.bauersteine.repository.UrneRepository;
 
@@ -76,8 +77,10 @@ public class UrneController {
         List<String> userRoles = jwt.getClaimAsStringList("user_roles");
         Optional<Urne> optUrne = urneRepository.findById(id);
         Urne urne = optUrne.get();
-
-        if (!userRoles.contains("prod") || !urne.getState().equals("AVAILABLE")) {
+        String email = jwt.getClaimAsString("email");
+        if (!userRoles.contains("prod") || !urne.getState().equals(UrneState.AVAILABLE) || !email.equals(urne.getUserEmail())) {//    !"AVAILABLE".equals(urne.getState())
+            System.out.println("UserRoles: " + userRoles);
+            System.out.println("UrneState: " + urne.getState());
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
         urneRepository.deleteById(id);
